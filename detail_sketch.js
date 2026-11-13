@@ -35,10 +35,12 @@ function draw() {
   //nome della regione
   push();
   fill(190, 105, 20);
-  textSize(35);
+  textSize(50);
+  stroke(64,64,64);
+  strokeWeight(1);
   textFont(mioFont);
   textAlign(CENTER, CENTER);
-  text(regioneSelezionata, width/2, 55);
+  text(regioneSelezionata, width/2, 48);
   pop();
 
 
