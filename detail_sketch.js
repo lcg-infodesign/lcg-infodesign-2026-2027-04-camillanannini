@@ -45,9 +45,9 @@ function draw() {
 
 
   //altezza e larghezza dei box
-  let margineX= windowWidth*0.04
-  let larghezzaBox = (windowWidth - (margineX*3))/2;
-  let altezzaBox = windowHeight - (windowHeight*0.15)-40;
+  let margineX= windowWidth*0.04 //spazio vuoto a sinistra, a destra e tra le box
+  let larghezzaBox = (windowWidth - (margineX*3))/2; //toglo dalla larghezza della finestra gli spazi vuoti tovati prima e poi divido per due per dividerlo in parti uguali
+  let altezzaBox = windowHeight - (windowHeight*0.15)-40; //dall'altezza della schermata sottraggo lo spazio per il nome della regione e poi -40 per il margine basso
 
  //box sinistra
   let xBox1 = margineX;
@@ -87,11 +87,11 @@ function draw() {
     let gocciaX = startX1 + (colonna * 24); //punto di parteznza della goccia+ avanzo della spaziatura ogni volta che avanza una colonna, quindi creo spazio costante tra le gocce
     let gocciaY = startY1 + (riga * 24);    
 
-    if (gocciaY < yBox1 + altezzaBox - 30) { //disegna la goccia soltanto se sta tra i limiti del box
-      fill(29, 111, 165);
-      noStroke();
-      ellipse(gocciaX, gocciaY, 4, 6);      
-    }
+    if (gocciaX < xBox1 + larghezzaBox - 20 && gocciaY < yBox1 + altezzaBox - 30) {
+     fill(29, 111, 165);
+     noStroke();
+     ellipse(gocciaX, gocciaY, 4, 6); // se la goccia va oltre il limite del box per altezza olarghezza allora non viene disegnata
+     } //cioè la disegno solo se non va oltre 
   }
   pop();
 
@@ -133,11 +133,15 @@ function draw() {
     let gocciaX = startX2 + (colonna * 24); 
     let gocciaY = startY2 + (riga * 24);    
 
-    if (gocciaY < yBox2 + altezzaBox - 30) {
+    if (gocciaX < xBox2 + larghezzaBox - 20 && gocciaY < yBox2 + altezzaBox - 30) {
       fill(52, 152, 219);
       noStroke();
       ellipse(gocciaX, gocciaY, 4, 6);      
     }
   }
   pop();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
