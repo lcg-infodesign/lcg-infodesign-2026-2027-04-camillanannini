@@ -29,18 +29,18 @@ function draw() {
   textAlign(CENTER, CENTER);
   textFont(mioFont);
   
-  text("Acqua erogata e immessa negli impianti idrici \nin ogni regione d'Italia nel 2022", width/2, 340);
+  text("Acqua erogata e immessa negli impianti idrici \nin ogni regione d'Italia nel 2022", width/2, windowHeight*0.10);
 
   textSize(28);
   textFont(mioFont);
   textAlign(CENTER, CENTER);
-  text("Clicca su una valvola rossa\nper scoprire i dati della regione", width/2, 460);
+  text("Clicca su una valvola rossa\nper scoprire i dati della regione", width/2, windowHeight*0.24);
   pop();
 
   //tubi
   let xMargine=0;
-  let yBase1= 180;  
-  let yBase2=600;
+  let yBase1= windowHeight*0.42;  
+  let yBase2=windowHeight*0.75;
   
   stroke(40);
   strokeWeight(1.5);

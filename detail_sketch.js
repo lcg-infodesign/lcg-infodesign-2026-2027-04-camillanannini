@@ -40,17 +40,18 @@ function draw() {
   strokeWeight(1);
   textFont(mioFont);
   textAlign(CENTER, CENTER);
-  text(regioneSelezionata, width/2, 48);
+  text(regioneSelezionata, width/2, windowHeight*0.07);
   pop();
 
 
   //altezza e larghezza dei box
-  let larghezzaBox = (windowWidth - 120)/2;
-  let altezzaBox = windowHeight - 140;
+  let margineX= windowWidth*0.04
+  let larghezzaBox = (windowWidth - (margineX*3))/2;
+  let altezzaBox = windowHeight - (windowHeight*0.15)-40;
 
  //box sinistra
-  let xBox1 = 40;
-  let yBox1 = 90;
+  let xBox1 = margineX;
+  let yBox1 = windowHeight*0.15;
 
   push();
   fill(255);
@@ -89,15 +90,15 @@ function draw() {
     if (gocciaY < yBox1 + altezzaBox - 30) { //disegna la goccia soltanto se sta tra i limiti del box
       fill(29, 111, 165);
       noStroke();
-      ellipse(gocciaX, gocciaY, 3.5, 4.5);      
+      ellipse(gocciaX, gocciaY, 4, 6);      
     }
   }
   pop();
 
 
 //box a destra
-  let xBox2 = 80 + larghezzaBox;
-  let yBox2 = 90;
+  let xBox2 = xBox1 + larghezzaBox+margineX;
+  let yBox2 = windowHeight*0.15;
 
   push();
   fill(255);
@@ -135,7 +136,7 @@ function draw() {
     if (gocciaY < yBox2 + altezzaBox - 30) {
       fill(52, 152, 219);
       noStroke();
-      ellipse(gocciaX, gocciaY, 3.5, 4.5);      
+      ellipse(gocciaX, gocciaY, 4, 6);      
     }
   }
   pop();
